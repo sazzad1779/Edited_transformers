@@ -427,7 +427,9 @@ def deepspeed_load_checkpoint(deepspeed_engine, checkpoint_path, load_module_str
         logger.info(f"Attempting to resume from {checkpoint_path}")
         # this magically updates self.optimizer and self.lr_scheduler
         load_path, _ = deepspeed_engine.load_checkpoint(
-            checkpoint_path, load_optimizer_states=True, load_lr_scheduler_states=True,
+            checkpoint_path,
+            load_optimizer_states=True,
+            load_lr_scheduler_states=True,
             load_module_strict=False
         )
         if load_path is None:
